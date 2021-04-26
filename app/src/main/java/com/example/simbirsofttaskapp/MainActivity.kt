@@ -1,7 +1,6 @@
 package com.example.simbirsofttaskapp
 
 import android.os.Bundle
-import android.provider.ContactsContract
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column

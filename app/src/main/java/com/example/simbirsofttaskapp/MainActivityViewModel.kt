@@ -1,30 +1,24 @@
 package com.example.simbirsofttaskapp
 
 import android.app.Application
-import android.content.res.AssetManager
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.simbirsofttaskapp.model.Task
 import com.example.simbirsofttaskapp.model.Tasks
-import java.sql.Timestamp
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.ZoneOffset
 
-//class MainActivityViewModel: ViewModel() {
 class MainActivityViewModel(application: Application): AndroidViewModel(application) {
-    private var _date: MutableLiveData<LocalDateTime> = MutableLiveData(LocalDateTime.now())
-    var date: LiveData<LocalDateTime> = _date
+    private val _date: MutableLiveData<LocalDateTime> = MutableLiveData(LocalDateTime.now())
+    val date: LiveData<LocalDateTime> = _date
 
     private val context = application.applicationContext
     private val _jsonToString: String =
         context.assets.open("tasks.json").bufferedReader().use { it.readText() }
 
-    private var _tasksFromJson: Tasks? = Tasks.fromJson(_jsonToString)
+    private val _tasksFromJson: Tasks? = Tasks.fromJson(_jsonToString)
     private val _tasks: MutableLiveData<Tasks> = MutableLiveData()
     val tasks: LiveData<Tasks> = _tasks
 
@@ -43,7 +37,7 @@ class MainActivityViewModel(application: Application): AndroidViewModel(applicat
         return null
     }
     private fun getTasksByDate() : Tasks{
-        var taskList: ArrayList<Task> = arrayListOf()
+        val taskList: ArrayList<Task> = arrayListOf()
         val dayStart = getDateInTimespan(_date.value!!.with(LocalTime.MIDNIGHT))
         val dayEnd = getDateInTimespan(_date.value!!.with(LocalTime.MAX))
 

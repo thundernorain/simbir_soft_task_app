@@ -14,14 +14,13 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import com.example.simbirsofttaskapp.MainActivityViewModel
 import com.example.simbirsofttaskapp.utils.DateUtils
-import java.text.SimpleDateFormat
 
 @Composable
 fun TasksView(
     navController: NavController,
     mainActivityViewModel: MainActivityViewModel = viewModel()
     ){
-    var tasks = mainActivityViewModel.tasks.observeAsState()
+    val tasks = mainActivityViewModel.tasks.observeAsState()
 
     LazyColumn(
         Modifier
