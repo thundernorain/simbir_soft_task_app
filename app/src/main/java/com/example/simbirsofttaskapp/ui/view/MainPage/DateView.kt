@@ -1,9 +1,11 @@
 package com.example.simbirsofttaskapp.ui.view
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CalendarToday
@@ -21,7 +23,7 @@ import java.time.format.DateTimeFormatter
 
 @Composable
 fun DateView(mainActivityViewModel: MainActivityViewModel = viewModel()) {
-    var selectedDate = mainActivityViewModel.date.observeAsState()
+    val selectedDate = mainActivityViewModel.date.observeAsState()
 
     val dialog = MaterialDialog()
     dialog.build {
