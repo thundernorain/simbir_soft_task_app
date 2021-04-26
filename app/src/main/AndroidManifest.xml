@@ -10,11 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimbirSoftTaskApp">
         <activity
-            android:name=".TaskInfoActivity"
-            android:exported="true"
-            android:label="@string/title_activity_task_info"
-            android:theme="@style/Theme.SimbirSoftTaskApp.NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.Color
 private val DarkColorPalette = darkColors()
 
 private val LightColorPalette = lightColors(
-        primary = Red100,
-        primaryVariant = Red200,
+        primary = Red200,
+        primaryVariant = Red400,
 )
 
 @Composable

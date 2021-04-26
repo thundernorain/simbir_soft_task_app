@@ -10,12 +10,12 @@ import com.beust.klaxon.Klaxon
 private val klaxon = Klaxon()
 
 data class Tasks (
-    val tasks: List<Task>
+    val tasks: ArrayList<Task>
 ) {
-    public fun toJson() = klaxon.toJsonString(this)
+    fun toJson() = klaxon.toJsonString(this)
 
     companion object {
-        public fun fromJson(json: String) = klaxon.parse<Tasks>(json)
+        fun fromJson(json: String) = klaxon.parse<Tasks>(json)
     }
 }
 

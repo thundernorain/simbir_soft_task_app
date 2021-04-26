@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
@@ -32,7 +31,7 @@ fun TaskInfoView(
         Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TaskPageBarView(onClick = { navController.navigateUp() })
+        Bar(label = "Описание дела", onClick = { navController.navigateUp() })
         Text(
             task.name,
             Modifier.padding(bottom = 20.dp),

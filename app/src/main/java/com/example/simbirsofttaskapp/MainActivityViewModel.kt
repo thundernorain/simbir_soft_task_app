@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.simbirsofttaskapp.model.Task
 import com.example.simbirsofttaskapp.model.Tasks
+import com.example.simbirsofttaskapp.utils.DateUtils
 import java.sql.Timestamp
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -43,9 +44,9 @@ class MainActivityViewModel(application: Application): AndroidViewModel(applicat
         return null
     }
     private fun getTasksByDate() : Tasks{
-        var taskList: ArrayList<Task> = arrayListOf()
-        val dayStart = getDateInTimespan(_date.value!!.with(LocalTime.MIDNIGHT))
-        val dayEnd = getDateInTimespan(_date.value!!.with(LocalTime.MAX))
+        val taskList: ArrayList<Task> = arrayListOf()
+        val dayStart = DateUtils().getDateInTimespan(_date.value!!.with(LocalTime.MIDNIGHT))
+        val dayEnd = DateUtils().getDateInTimespan(_date.value!!.with(LocalTime.MAX))
 
         for (task in _tasksFromJson!!.tasks) {
             if(task.dateStart.toLong() <= dayEnd && task.dateFinish.toLong() >= dayStart)
@@ -53,5 +54,4 @@ class MainActivityViewModel(application: Application): AndroidViewModel(applicat
         }
         return Tasks(taskList)
     }
-    private fun getDateInTimespan(date: LocalDateTime): Long = date.atZone(ZoneOffset.UTC).toEpochSecond()
 }

@@ -1,7 +1,6 @@
 package com.example.simbirsofttaskapp
 
 import android.os.Bundle
-import android.provider.ContactsContract
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -17,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.simbirsofttaskapp.ui.theme.SimbirSoftTaskAppTheme
 import com.example.simbirsofttaskapp.ui.view.DateView
 import com.example.simbirsofttaskapp.ui.view.MainPage.TasksView
+import com.example.simbirsofttaskapp.ui.view.TaskAddingPage.TaskAddPage
 import com.example.simbirsofttaskapp.ui.view.TaskInfoPage.TaskInfoView
 
 class MainActivity : ComponentActivity() {
@@ -39,6 +39,7 @@ class MainActivity : ComponentActivity() {
                                 navController = navController
                             )
                         }
+                        composable("taskAddPage"){ TaskAddPage(navController = navController) }
                     }
                 }
             }
@@ -51,7 +52,7 @@ fun MainView(
     navController: NavController
 ) {
     Column {
-        DateView()
+        DateView(navController = navController)
         TasksView(navController)
     }
 }
